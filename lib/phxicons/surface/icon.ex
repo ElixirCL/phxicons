@@ -24,11 +24,12 @@ if Code.ensure_loaded?(Surface) do
     def render(assigns) do
       class_opts = class_to_opts(assigns)
 
-      opts = assigns.opts
-        |> Keyword.merge([
+      opts =
+        assigns.opts
+        |> Keyword.merge(
           width: assigns.size,
           height: assigns.size
-        ])
+        )
         |> Keyword.merge(class_opts)
 
       assigns = assign(assigns, opts: opts)

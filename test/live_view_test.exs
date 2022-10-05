@@ -58,5 +58,4 @@ defmodule Phxicons.LiveViewTest do
       """)
     end
   end
-
 end

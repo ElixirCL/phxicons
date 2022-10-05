@@ -15,11 +15,12 @@ if Code.ensure_loaded?(Phoenix.LiveView) do
 
       size = assigns[:size] || "1em"
 
-      opts = (assigns[:opts] || [])
-        |> Keyword.merge([
+      opts =
+        (assigns[:opts] || [])
+        |> Keyword.merge(
           width: size,
           height: size
-        ])
+        )
         |> Keyword.merge(class_opts)
 
       assigns = assign(assigns, opts: opts)

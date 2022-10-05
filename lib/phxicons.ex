@@ -63,22 +63,27 @@ defmodule Phxicons do
   """
   @spec icon(String.t(), keyword) :: Phoenix.HTML.safe()
   def icon(name, opts \\ []) do
-
-    options = [
-      stroke: "currentColor",
-      fill: "currentColor",
-      "stroke-width": "0",
-      width: "1em",
-      height: "1em"
+    options =
+      [
+        stroke: "currentColor",
+        fill: "currentColor",
+        "stroke-width": "0",
+        width: "1em",
+        height: "1em"
       ]
       |> Keyword.merge(opts)
+
     # We have to read from disk, it adds more compilation
     # time if we preload it beforehand
-    icon = case Map.get(@icons, name) do
-      nil ->  Path.relative_to_cwd("#{@cwd}/icons/#{name}.svg")
-              |> Icon.parse!()
-      icon -> icon
-    end
+    icon =
+      case Map.get(@icons, name) do
+        nil ->
+          Path.relative_to_cwd("#{@cwd}/icons/#{name}.svg")
+          |> Icon.parse!()
+
+        icon ->
+          icon
+      end
 
     @icons = Map.put(@icons, name, icon)
 
