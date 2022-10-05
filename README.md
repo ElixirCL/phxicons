@@ -14,10 +14,12 @@ so please check each project licences accordingly.
 
 Add `elixircl_phxicons` to the list of dependencies in `mix.exs`:
 
+Due to https://github.com/hexpm/hex/issues/687[hex.pm package size limit] you have to use github as a parameter.
+
 ```elixir
 def deps do
   [
-    {:elixircl_phxicons, "~> 1.0.0"}
+    {:elixircl_phxicons, github: "elixircl/phxicons"}
   ]
 end
 ```
